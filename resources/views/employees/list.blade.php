@@ -16,7 +16,7 @@
 							<ul class="list-inline pull-right">
 								<li>
 									<div class="form-group is-empty">
-										<select class="form-control filter-select" id="pagination" onchange="getFilteredEMployeesList()">
+										<select class="form-control filter-select" id="pagination" onchange="getFilteredEmployeesList()">
 											<option value="" disabled selected>Empleados a mostrar</option>
 											<option value="5">5 empleados</option>
 											<option value="10">10 empleados</option>
@@ -94,11 +94,11 @@
 		</div>
 	</div>
 
-{{--	<script src="{{ URL::asset('js/app/employees/list.js') }}"></script>--}}
+	<script src="{{ URL::asset('js/app/employees.js') }}"></script>
 
 	<!-- Modal Registro de empleado -->
 	<div class="modal fade" id="modalNewEmployee" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<form id="user-form" method="POST" action="{{ url('admin/users/create') }}">
+		<form id="user-form" method="POST" action="{{ url('employees/create') }}">
 			{{ csrf_field() }}
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">

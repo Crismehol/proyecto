@@ -15,4 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('employees/list', 'EmployeeController@show');
+Route::group(['prefix' => 'employees'], function(){
+    Route::get('/list', 'EmployeeController@show');
+    Route::post('/create', 'EmployeeController@create');
+    Route::post('/update/{employee_id}', 'EmployeeController@update');
+});
+
+Route::group(['prefix' => 'customers'], function(){
+    Route::get('/list', 'CustomerController@show');
+    Route::post('/create', 'CustomerController@create');
+    Route::post('/update/{customers_id}', 'CustomerController@update');
+});

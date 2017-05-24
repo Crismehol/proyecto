@@ -3,7 +3,7 @@
  */
 var host = window.location.hostname;
 var protocol = window.location.protocol;
-var HOST = protocol+"//"+host+"/gestion_optica/public";
+var HOST = protocol+"//"+host+"/proyecto/public";
 var API = "/api";
 
 

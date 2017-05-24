@@ -14,6 +14,7 @@ class CreateCustomersTable extends Migration {
 			$table->string('surname');
 			$table->string('dni', 9);
 			$table->string('email');
+			$table->string('phone_number', 9);
 		});
 	}
 

@@ -1,5 +1,5 @@
 /**
- * Created by Crismehol on 14/05/2017.
+ * Created by Crismehol on 24/05/2017.
  */
 
 function getFilteredEmployeesList(){
@@ -27,73 +27,27 @@ function getFilteredEmployeesList(){
     }
     location.href = url;
 }
-function getOrderedEmployeesList(field, order){
-    var filter = $('#filter');
-    var pagination = $('#pagination');
-    var url = 'list';
-    var parameters = false;
-    if(filter.val().length != 0){
-        if(!parameters){
-            url += '?';
-        }else{
-            url += '&';
-        }
-        url += 'filter=' + filter.val();
-        parameters = true;
-    }
-    if(pagination.val() != "" && pagination.val() != null){
-        if(!parameters){
-            url += '?';
-        }else{
-            url += '&';
-        }
-        url += 'pagination=' + pagination.val();
-        parameters = true;
-    }
-    if(order == 'asc' || order == null || order == undefined || order == ''){
-        order = 'des';
-    }else{
-        order = 'asc';
-    }
-    if(!parameters){
-        url += '?';
-    }else{
-        url += '&';
-    }
-    url += field + '=' + order;
-    location.href = url;
-}
 function openModalToCreate(){
     changeAction('create');
     $('#name')
         .val('')
         .parent().addClass('is-empty');
-    $('#surnames')
-        .val('')
-        .parent().addClass('is-empty');
-    $('#dni')
+    $('#contact')
         .val('')
         .parent().addClass('is-empty');
     $('#email')
         .val('')
         .parent().addClass('is-empty');
-    $('#job')
+    $('#phone')
         .val('')
         .parent().addClass('is-empty');
-    $('#user')
-        .val('')
-        .parent().addClass('is-empty');
-    $('#password')
-        .val('')
-        .parent().addClass('is-empty');
-
-    $('#modalNewEmployee').modal('show');
+    $('#modalNewClient').modal('show');
 }
 function openModalToEdit(employee_id){
     changeAction('edit', employee_id);
     $.ajax({
         method: 'GET',
-        url: HOST + API + EMPLOYEES + DETAILS + "/" + employee_id,
+        url: HOST + API + EMPLOYEES + "/" + employee_id,
         success: function (data) {
             var employee = data['data'];
             $('#name')
