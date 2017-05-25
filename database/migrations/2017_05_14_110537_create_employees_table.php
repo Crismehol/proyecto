@@ -14,8 +14,8 @@ class CreateEmployeesTable extends Migration {
 			$table->string('surname', 100);
 			$table->string('dni', 9);
 			$table->string('email', 50);
-			$table->string('job', 20);
-			$table->string('user', 10);
+			$table->boolean('job', 1);
+			$table->string('user', 100);
 			$table->string('password', 65);
 		});
 	}

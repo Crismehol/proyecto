@@ -61,7 +61,8 @@
 										<td>{{$customer->email}}</td>
 										<td>{{$customer->phone_number}}</td>
 										<td>
-											{{--<a href="javascript:;" onclick="openModalToEdit({{$customer->id}})"><i class="material-icons">mode_edit</i></a>--}}
+											<a href="javascript:;" onclick="openModalToEdit({{$customer->id}})"><i class="material-icons">mode_edit</i></a>
+											<a href="{{ url('employees/delete/'. $customer->id) }}"><i class="material-icons" title="Borrar">delete_forever</i></a>
 										</td>
 									</tr>
 								@endforeach

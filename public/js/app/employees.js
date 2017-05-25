@@ -41,7 +41,7 @@ function openModalToCreate(){
     $('#phone')
         .val('')
         .parent().addClass('is-empty');
-    $('#modalNewClient').modal('show');
+    $('#modalNewEmployee').modal('show');
 }
 function openModalToEdit(employee_id){
     changeAction('edit', employee_id);
@@ -62,7 +62,7 @@ function openModalToEdit(employee_id){
             $('#phone')
                 .val(employee['phone'])
                 .parent().removeClass('is-empty');
-            $('#modalNewClient').modal('show');
+            $('#modalNewEmployee').modal('show');
         },
         error: function (datas){
             notificarError("Se ha producido un error. Inténtelo de nuevo");

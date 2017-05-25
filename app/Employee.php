@@ -42,7 +42,12 @@ class Employee extends Model
         $employee->user = $request->email;
         $employee->save();
     }
-
+    
+    public static function delete_employee($employee_id){
+        $employee = Employee::find($employee_id);
+        $employee->delete();
+    }
+    
     // Consultas a la base de datos
     public static function getList(){
         return DB::table('employees')->get();

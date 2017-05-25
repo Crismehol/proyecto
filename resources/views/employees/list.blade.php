@@ -62,6 +62,7 @@
 										<td>{{$employee->job}}</td>
 										<td>
 											<a href="javascript:;" onclick="openModalToEdit({{$employee->id}})"><i class="material-icons">mode_edit</i></a>
+											<a href="{{ url('employees/delete/'. $employee->id) }}"><i class="material-icons" title="Borrar">delete_forever</i></a>
 										</td>
 									</tr>
 								@endforeach
@@ -78,9 +79,10 @@
 								});
 							</script>
 							@if($errors->first('name') != null ||
-                                $errors->first('contact') != null ||
-                                $errors->first('email') != null ||
-                                $errors->first('phone') != null )
+                                $errors->first('surname') != null ||
+                                $errors->first('dni') != null ||
+                                $errors->first('user') != null ||
+                                $errors->first('job') != null )
 								<script type="application/javascript">
 									$(document).ready(function () {
 										$('#modalNewEmployee').modal('show');

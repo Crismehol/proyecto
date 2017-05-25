@@ -15,15 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Route::get('/login', '')
+
 Route::group(['prefix' => 'employees'], function(){
     Route::get('/list', 'EmployeeController@show');
     Route::post('/create', 'EmployeeController@create');
     Route::post('/update/{employee_id}', 'EmployeeController@update');
+    Route::post('/delete', 'EmployeeController@delete');
 });
 
 Route::group(['prefix' => 'customers'], function(){
     Route::get('/list', 'CustomerController@show');
     Route::post('/create', 'CustomerController@create');
     Route::post('/update/{customers_id}', 'CustomerController@update');
+    Route::post('/delete', 'CustomerController@delete');
 });
 

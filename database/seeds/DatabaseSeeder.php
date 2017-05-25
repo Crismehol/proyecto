@@ -7,6 +7,12 @@ class DatabaseSeeder extends Seeder {
 
 	public function run()
 	{
-		Model::unguard();
+//		Model::unguard();
+		DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+		
+		$this->call(CustomerTableSeeder::class);
+		$this->call(EmployeeTableSeeder::class);
+
+		DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 	}
 }
