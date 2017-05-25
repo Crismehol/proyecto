@@ -26,3 +26,4 @@ Route::group(['prefix' => 'customers'], function(){
     Route::post('/create', 'CustomerController@create');
     Route::post('/update/{customers_id}', 'CustomerController@update');
 });
+
