@@ -16,7 +16,8 @@ class EmployeeController extends Controller
 
     public function create(CreateEmployeesFormRequest $request){
         Employee::create_employee($request);
-        return view('employees.list');
+        $employees = Employee::getList();
+        return view('employees.list', array('employees' => $employees));
     }
 
     public function update(UpdateEmployeesFormRequest $request, $employee_id){

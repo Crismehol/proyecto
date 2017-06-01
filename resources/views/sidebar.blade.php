@@ -1,54 +1,38 @@
-<div class="sidebar" data-color="blue" data-image="">
-    <div class="logo">
-        <a href="javascript:;" class="simple-text">Gestión <strong>Óptica</strong></a>
-        <a href="javascript:;" class="simple-text-closed hidden-sm hidden-xs">O</a>
-    </div>
-
-    <div class="sidebar-wrapper">
-        <ul class="nav">
-            <li id="inicio-link">
-                <a href="{{ url('inicio') }}">
-                    <i class="material-icons">home</i>
-                    <p>Inicio</p>
-                </a>
-            </li>
-            <li id="customers-link">
-                <a href="javascript:;" class="collapse" data-toggle="collapse" data-target="#submenu-customers" aria-expanded="false">
-                    <i class="material-icons">description</i>
-                    <p>Clientes <i class="fa fa-angle-down pull-right" aria-hidden="true"></i></p>
-                </a>
-                <div class="collapse" id="submenu-customers">
-                    <ul class="submenu">
-                        <li>
-                            <a href="{{ url('customers/list') }}"><p>Lista de clientes</p></a>
-                        </li>
-                        <li>
-                            <a href="{{ url('history') }}"><p>Historial</p></a>
-                        </li>
-                        <li>
-                            <a href="{{ url('tickets') }}"><p>Tickets</p></a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li id="employees-link">
-                <a href="{{ url('employees/list') }}">
-                    <i class="material-icons">content_paste</i>
-                    <p>Empleados</p>
-                </a>
-            </li>
-            <li id="products-link">
-                <a href="javascript:;">
-                    <i class="material-icons">assessment</i>
-                    <p>Productos</p>
-                </a>
-            </li>
-            <li id="providers-link">
-                <a href="javascript:;">
-                    <i class="material-icons">view_list</i>
-                    <p>Proveedores</p>
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
+<section id='sidebar'>
+    <i class='icon-align-justify icon-large' id='toggle'></i>
+    <ul id='dock'>
+        <li class='launcher'>
+            <i class='icon-dashboard'></i>
+            <a href="{{ url('/dashboard') }}">Dashboard</a>
+        </li>
+        <li class='active launcher'>
+            <i class='icon-file-text-alt'></i>
+            <a href="{{ url('employees/list') }}">Empleados</a>
+        </li>
+        <li class='launcher dropdown hover'>
+            <i class='icon-flag'></i>
+            <a href=''>Clientes</a>
+            <ul class='dropdown-menu'>
+                <li class='dropdown-header'>Launcher description</li>
+                <li>
+                    <a href={{ url('customers/list') }}>Listado</a>
+                </li>
+                <li>
+                    <a href='{{url('history/list')}}'>Historial</a>
+                </li>
+                <li>
+                    <a href='{{ url('tickets/list') }}'>Tickets</a>
+                </li>
+            </ul>
+        </li>
+        <li class='launcher'>
+            <i class='icon-file'></i>
+            <a href="{{ url('products/list') }}">Productos</a>
+        </li>
+        <li class='launcher'>
+            <i class='icon-book'></i>
+            <a href="{{ url('providers/list') }}">Proveedores</a>
+        </li>
+    </ul>
+    <div data-toggle='tooltip' id='beaker' title='Made by lab2023'></div>
+</section>

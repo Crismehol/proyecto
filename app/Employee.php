@@ -2,8 +2,10 @@
 
 namespace App;
 
+use App\Http\Requests\CreateEmployeesFormRequest;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class Employee extends Model
 {
@@ -18,7 +20,7 @@ class Employee extends Model
     }
     
     // Funciones CRUD
-    public static function create_employee($request)
+    public static function create_employee(CreateEmployeesFormRequest $request)
     {
         $employee = new Employee();
         $employee->name = $request->name;
