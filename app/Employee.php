@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Http\Requests\CreateEmployeesFormRequest;
+use App\Http\Requests\UpdateEmployeesFormRequest;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -13,7 +14,7 @@ class Employee extends Model
     protected $table = 'employees';
     public $timestamps = true;
     
-    // Función de la relación con la tabla 'Tickets'
+    // Relación con la tabla 'Tickets'
     public function getTickets()
     {
         return $this->hasMany('Ticket');
@@ -33,7 +34,7 @@ class Employee extends Model
         $employee->save();
     }
 
-    public static function update_employee($request, $employee_id)
+    public static function update_employee(UpdateEmployeesFormRequest $request, $employee_id)
     {
         $employee = Employee::find($employee_id);
         $employee->name = $request->name;
@@ -43,11 +44,6 @@ class Employee extends Model
         $employee->job = $request->job;
         $employee->user = $request->email;
         $employee->save();
-    }
-    
-    public static function delete_employee($employee_id){
-        $employee = Employee::find($employee_id);
-        $employee->delete();
     }
     
     // Consultas a la base de datos

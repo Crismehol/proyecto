@@ -28,8 +28,11 @@ class CreateEmployeesFormRequest extends FormRequest
             'name'      => 'required',
             'surname'   => 'required',
             'dni'       => 'string',
-            'job'       => 'required',
-            'user'      => 'required|email'
+            'email'     => 'email|unique',
+            'job'       => ["required", Rule::in([0,1])],
+            'user'      => 'required|email',
+            'password'  => 'required|min:6',
+
         ];
     }
 }

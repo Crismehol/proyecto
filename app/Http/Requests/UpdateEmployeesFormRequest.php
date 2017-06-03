@@ -25,6 +25,10 @@ class UpdateEmployeesFormRequest extends FormRequest
     {
         return [
             //
+            'name'      => 'required',
+            'surname'   => 'required',
+            'dni'       => 'string',
+            'job'       => ["required", Rule::in([0,1])]
         ];
     }
 }

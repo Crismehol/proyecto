@@ -23,11 +23,14 @@ Route::group(['prefix' => 'employees'], function(){
     Route::get('/list', 'EmployeeController@show');
     Route::post('/create', 'EmployeeController@create');
     Route::post('/update/{employee_id}', 'EmployeeController@update');
-    Route::post('/delete', 'EmployeeController@delete');
+    Route::get('/delete/{employee_id}', 'EmployeeController@delete');
     Route::get('/forms/createEmployee', function(){
        return view('forms.createEmployee');
     });
 });
+
+Route::get('api/details/{employee_id}', 'EmployeeController@details');
+
 
 Route::group(['prefix' => 'customers'], function(){
     Route::get('/list', 'CustomerController@show');

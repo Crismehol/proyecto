@@ -17,31 +17,31 @@
             <form method="post" action="{{ url('employees/create') }}">
             {{ csrf_field() }}
                 <fieldset>
-                    <div class="form-group">
+                    <div class="form-group @if(Input::old('name') == null) is-empty @endif">
                         <label class="control-label">Nombre</label>
                         <input id="name" type="text" class="form-control" name="name"
-                               value="" required>
+                               value="{{Input::old('name')}}" required>
                         <span class="material-input">{{$errors->first('name')}}</span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group @if(Input::old('surname') == null) is-empty @endif">
                         <label class="control-label">Apellidos</label>
                         <input id="surname" type="text" class="form-control" name="surname"
-                               value="">
+                               value="{{Input::old('surname')}}">
                         <span class="material-input">{{$errors->first('surname')}}</span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group @if(Input::old('dni') == null) is-empty @endif">
                         <label class="control-label">DNI</label>
                         <input id="dni" type="text" class="form-control" name="dni"
-                               value="">
+                               value="{{Input::old('dni')}}">
                         <span class="material-input">{{$errors->first('dni')}}</span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group @if(Input::old('email') == null) is-empty @endif">
                         <label class="control-label">Email</label>
                         <input id="email" type="email" class="form-control" name="email"
-                               value="">
+                               value="{{Input::old('email')}}">
                         <span class="material-input">{{$errors->first('email')}}</span>
                     </div>
-                    <div class="form-group label-floating">
+                    <div class="form-group @if(Input::old('job') == null) is-empty @endif">
                         <label class="control-label">Puesto</label>
                         <select class="form-control" name="job" id="job">
                             <option value="0">Administrador</option>
@@ -49,16 +49,16 @@
                         </select>
                         <span class="material-input">{{$errors->first('job')}}</span>
                     </div>
-                    <div class="form-group label-floating">
-                        <label class="control-label">user</label>
+                    <div class="form-group  @if(Input::old('user') == null) is-empty @endif">
+                        <label class="control-label">Usuario</label>
                         <input id="user" type="text" class="form-control" name="user"
-                               value="" required>
+                               value="{{Input::old('user')}}" required>
                         <span class="material-input">{{$errors->first('user')}}</span>
                     </div>
-                    <div class="form-group label-floating">
+                    <div class="form-group  @if(Input::old('password') == null) is-empty @endif">
                         <label class="control-label">Password</label>
                         <input id="password" type="password" class="form-control" name="password"
-                               value="" required>
+                               value="{{Input::old('password')}}" required>
                         <span class="material-input">{{$errors->first('password')}}</span>
                     </div>
                     <div class="modal-footer">

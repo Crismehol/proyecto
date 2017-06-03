@@ -1,103 +1,90 @@
 @extends('template')
-@section('title', 'Example title')
-
 @section('content')
-
-	<div class="content">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="card">
-						<div class="card-header" data-background-color="red">
-							<a href="javascript:;" class="btn btn-default" onclick="openModalToCreate()">Nuevo empleado
-								<div class="ripple-container"></div>
-							</a>
-
-							<ul class="list-inline pull-right">
-								<li>
-									<div class="form-group is-empty">
-										<select class="form-control filter-select" id="pagination" onchange="getFilteredCustomersList()">
-											<option value="" disabled selected>Clientes a mostrar</option>
-											<option value="5">5 clientes</option>
-											<option value="10">10 clientes</option>
-											<option value="25">25 clientes</option>
-											<option value="50">50 clientes</option>
-											<option value="100">100 clientes</option>
-										</select>
-									</div>
-								</li>
-								<li>
-									<div class="form-group is-empty">
-										<input type="text" class="form-control" placeholder="buscar..." id="filter">
-										<span class="material-input"></span>
-									</div>
-									<a href="" id="clear_search" title="Limpiar Búsqueda" class="hidden btn-white" onclick="location.href = 'list'; return false"><i class="material-icons white-icon">highlight_off</i></a>
-									<button type="button" class="btn btn-white btn-round btn-just-icon"
-											onclick="getFilteredCustomersList()">
-										<i class="material-icons">search</i>
-										<div class="ripple-container"></div>
-									</button>
-								</li>
-							</ul>
+	<section id='tools'>
+		<ul class='breadcrumb' id='breadcrumb'>
+			<li class='title'>Clientes</li>
+			<li><a href="{{ url('customers/list') }}">Listado de clientes</a></li>
+		</ul>
+	</section>
+	<div id='content'>
+		<div class='panel panel-default grid'>
+			<div class='panel-heading'>
+				<i class='icon-table icon-large'></i>
+				Listado de clientes
+				<div class='panel-tools'>
+					<div class='badge'>3 record</div>
+				</div>
+			</div>
+			<div class='panel-body filters'>
+				<div class='row'>
+					<div class='col-md-6'>
+						{{--<a href="javascript:;" data-toggle='toolbar-tooltip' class="btn" onclick="openModalToCreate()">Registrar cliente</a>--}}
+						<a href="{{ url('customers/forms/createCustomer') }}" class="btn">Registrar cliente</a>
+					</div>
+					<div class='col-md-3'>
+						<select class="form-control filter-select" id="pagination" onchange="getFilteredCustomersList()">
+							<option value="" disabled selected>Clientes a mostrar</option>
+							<option value="5">5 clientes</option>
+							<option value="10">10 clientes</option>
+							<option value="25">25 clientes</option>
+							<option value="50">50 clientes</option>
+							<option value="100">100 clientes</option>
+						</select>
+					</div>
+					<div class='col-md-3'>
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="buscar..." id="filter">
+                        <span class="input-group-btn">
+                            <button class="btn" type="button"><i class="icon-search"></i></button>
+                        </span>
 						</div>
-						<div class="card-content table-responsive">
-							<table id="example" class="table display">
-								<thead class="text-danger bold">
-								<th>ID</th>
-								<th>Nombre</th>
-								<th>Apellidos</th>
-								<th>DNI</th>
-								<th>Email</th>
-								<th>Teléfono</th>
-								<th>Acciones</th>
-								</thead>
-								<tbody>
-								@foreach($customers as $customer)
-									<tr>
-										<td>{{$customer->id}}</td>
-										<td>{{$customer->name}}</td>
-										<td>{{$customer->surname}}</td>
-										<td>{{$customer->dni}}</td>
-										<td>{{$customer->email}}</td>
-										<td>{{$customer->phone_number}}</td>
-										<td>
-											<a href="javascript:;" onclick="openModalToEdit({{$customer->id}})"><i class="material-icons">mode_edit</i></a>
-											<a href="{{ url('employees/delete/'. $customer->id) }}"><i class="material-icons" title="Borrar">delete_forever</i></a>
-										</td>
-									</tr>
-								@endforeach
-								</tbody>
-							</table>
-							{{--{{$data['customers']->links()}}--}}
-							{{--<script>--}}
-								{{--$(document).ready(function () {--}}
-									{{--var paginationVal = getURLParameter('pagination');--}}
-									{{--$('#pagination').val(paginationVal);--}}
-
-									{{--var filterVal = getURLParameter('filter');--}}
-									{{--$('#filter').val(filterVal);--}}
-								{{--});--}}
-							{{--</script>--}}
-							{{--@if($errors->first('name') != null ||--}}
-                                {{--$errors->first('contact') != null ||--}}
-                                {{--$errors->first('email') != null ||--}}
-                                {{--$errors->first('phone') != null )--}}
-								{{--<script type="application/javascript">--}}
-									{{--$(document).ready(function () {--}}
-										{{--$('#modalNewCustomer').modal('show');--}}
-									{{--});--}}
-								{{--</script>--}}
-							{{--@endif--}}
-						</div>
+						{{--<a href="" id="clear_search" title="Limpiar Búsqueda" class="hidden btn-white" onclick="location.href = 'list'; return false">--}}
+						{{--<i class="material-icons white-icon">highlight_off</i></a>--}}
+						{{--<button type="button" class="btn btn-white btn-round btn-just-icon" onclick="getFilteredCustomersList()">--}}
+						{{--<i class=""></i>--}}
+						{{--</button>--}}
 					</div>
 				</div>
+			</div>
+			<table class='table'>
+				<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>Apellidos</th>
+					<th>DNI</th>
+					<th>Email</th>
+					<th>Contacto</th>
+					<th>Acciones</th>
+				</tr>
+				</thead>
+				<tbody>
+				@foreach($customers as $customer)
+					<tr>
+						<td>{{$customer->id}}</td>
+						<td>{{$customer->name}}</td>
+						<td>{{$customer->surname}}</td>
+						<td>{{$customer->dni}}</td>
+						<td>{{$customer->email}}</td>
+						<td>{{$customer->phone_number}}</td>
+						<td class="actions">
+							<a href="javascript:;" onclick="openModalToEdit({{$customer->id}})">
+								<i class="icon-edit"></i></a>
+							<a href="{{ url('customers/delete/'.$customer->id) }}">
+								<i class="icon-trash"></i></a>
+						</td>
+					</tr>
+				@endforeach
+				</tbody>
+			</table>
+			<div class='panel-footer'>
 			</div>
 		</div>
 	</div>
 
 	<script src="{{ URL::asset('js/app/customers.js') }}"></script>
 
-	<!-- Modal Registro de empleado -->
+	<!-- Modal Registro de cliente -->
 	<div class="modal fade" id="modalNewCustomer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<form id="user-form" method="POST" action="{{ url('customers/create') }}">
 			{{ csrf_field() }}
@@ -143,13 +130,29 @@
 							</div>
 							<div class="col-sm-6">
 								<div class="form-group label-floating">
-									<label class="control-label">Teléfono</label>
-									<input id="phone_number" type="text" class="form-control" name="phone_number" value="">
-									<select class="form-control" name="phone_number" id="phone_number">
+									<label class="control-label">Puesto</label>
+									<input id="job" type="job" class="form-control" name="job" value="">
+									<select class="form-control" name="job" id="job">
 										<option value="0">Administrador</option>
 										<option value="1">Empleado</option>
 									</select>
-									<span class="material-input">{{$errors->first('phone_number')}}</span>
+									<span class="material-input">{{$errors->first('job')}}</span>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group label-floating">
+									<label class="control-label">user</label>
+									<input id="user" type="text" class="form-control" name="user"
+										   value="" required>
+									<span class="material-input">{{$errors->first('user')}}</span>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group label-floating">
+									<label class="control-label">Password</label>
+									<input id="password" type="password" class="form-control" name="password"
+										   value="" required>
+									<span class="material-input">{{$errors->first('password')}}</span>
 								</div>
 							</div>
 						</div>
@@ -163,26 +166,25 @@
 		</form>
 	</div>
 
-	{{--<script>--}}
-		{{--function changeAction(mode, customer_id){--}}
-			{{--var form = $('#customer-form');--}}
-			{{--var newAction = HOST + CUSTOMERS;--}}
-			{{--if(mode === "create"){--}}
-				{{--newAction += CREATE;--}}
-			{{--}--}}
-			{{--if(mode === "edit"){--}}
-				{{--newAction += UPDATE + "/" + customer_id;--}}
-			{{--}--}}
-			{{--form.attr('action', newAction);--}}
-		{{--}--}}
-		{{--$(function () {--}}
-			{{--$("#filter").on('keyup', function (e) {--}}
-				{{--if (e.keyCode == 13) {--}}
-					{{--getFilteredCustomersList();--}}
-				{{--}--}}
-			{{--});--}}
-			{{--showClearSearch();--}}
-		{{--});--}}
-	{{--</script>--}}
-
+	<script type="text/javascript">
+		function changeAction(mode, customer_id){
+			var form = $('#customer-form');
+			var newAction = HOST + CUSTOMERS;
+			if(mode === "create"){
+				newAction += CREATE;
+			}
+			if(mode === "edit"){
+				newAction += UPDATE + "/" + customer_id;
+			}
+			form.attr('action', newAction);
+		}
+		//    $(function () {
+		//        $("#filter").on('keyup', function (e) {
+		//            if (e.keyCode == 13) {
+		//                getFilteredCustomersList();
+		//            }
+		//        });
+		//        showClearSearch();
+		//    });
+	</script>
 @stop

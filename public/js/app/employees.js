@@ -32,13 +32,22 @@ function openModalToCreate(){
     $('#name')
         .val('')
         .parent().addClass('is-empty');
-    $('#contact')
+    $('#surname')
+        .val('')
+        .parent().addClass('is-empty');
+    $('#dni')
         .val('')
         .parent().addClass('is-empty');
     $('#email')
         .val('')
         .parent().addClass('is-empty');
-    $('#phone')
+    $('#user')
+        .val('')
+        .parent().addClass('is-empty');
+    $('#job')
+        .val('')
+        .parent().addClass('is-empty');
+    $('#password')
         .val('')
         .parent().addClass('is-empty');
     $('#modalNewEmployee').modal('show');
@@ -47,21 +56,30 @@ function openModalToEdit(employee_id){
     changeAction('edit', employee_id);
     $.ajax({
         method: 'GET',
-        url: HOST + API + EMPLOYEES + "/" + employee_id,
+        url: HOST + API + DETAILS + EMPLOYEES + "/" + employee_id,
         success: function (data) {
             var employee = data['data'];
             $('#name')
-                .val(employee['name'])
-                .parent().removeClass('is-empty');
-            $('#contact')
-                .val(employee['contact'])
-                .parent().removeClass('is-empty');
+                .val('')
+                .parent().addClass('is-empty');
+            $('#surname')
+                .val('')
+                .parent().addClass('is-empty');
+            $('#dni')
+                .val('')
+                .parent().addClass('is-empty');
             $('#email')
-                .val(employee['email'])
-                .parent().removeClass('is-empty');
-            $('#phone')
-                .val(employee['phone'])
-                .parent().removeClass('is-empty');
+                .val('')
+                .parent().addClass('is-empty');
+            $('#user')
+                .val('')
+                .parent().addClass('is-empty');
+            $('#job')
+                .val('')
+                .parent().addClass('is-empty');
+            $('#password')
+                .val('')
+                .parent().addClass('is-empty');
             $('#modalNewEmployee').modal('show');
         },
         error: function (datas){

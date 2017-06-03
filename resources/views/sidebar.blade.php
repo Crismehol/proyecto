@@ -13,7 +13,6 @@
             <i class='icon-flag'></i>
             <a href=''>Clientes</a>
             <ul class='dropdown-menu'>
-                <li class='dropdown-header'>Launcher description</li>
                 <li>
                     <a href={{ url('customers/list') }}>Listado</a>
                 </li>

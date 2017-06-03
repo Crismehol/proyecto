@@ -16,20 +16,23 @@ class EmployeeController extends Controller
 
     public function create(CreateEmployeesFormRequest $request){
         Employee::create_employee($request);
-        $employees = Employee::getList();
-        return view('employees.list', array('employees' => $employees));
+        return redirect('employees/list');
     }
 
     public function update(UpdateEmployeesFormRequest $request, $employee_id){
         Employee::update_employee($request, $employee_id);
-        return view('employees.list');
+        return redirect('employees/list');
     }
     
     public function delete($employee_id){
-        Employee::delete_employee($employee_id);
-        return view('employees.list');
+        $employee = Employee::find($employee_id);
+        $employee->delete();
+        return redirect('employees/list');
     }
 
+    public function details($employee_id){
+        return Employee::find($employee_id);
+    }
 }
 
 ?>
