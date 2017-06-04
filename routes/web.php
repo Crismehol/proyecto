@@ -39,3 +39,4 @@ Route::group(['prefix' => 'customers'], function(){
     Route::post('/delete', 'CustomerController@delete');
 });
 
+Route::get('records/list', 'RecordController@show');

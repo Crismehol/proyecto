@@ -17,7 +17,7 @@
                     <a href={{ url('customers/list') }}>Listado</a>
                 </li>
                 <li>
-                    <a href='{{url('history/list')}}'>Historial</a>
+                    <a href='{{url('records/list')}}'>Historial</a>
                 </li>
                 <li>
                     <a href='{{ url('tickets/list') }}'>Tickets</a>
