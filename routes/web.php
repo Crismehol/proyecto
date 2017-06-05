@@ -27,6 +27,7 @@ Route::group(['prefix' => 'employees'], function(){
     Route::get('/forms/createEmployee', function(){
        return view('forms.createEmployee');
     });
+
 });
 
 Route::get('api/details/{employee_id}', 'EmployeeController@details');
@@ -37,6 +38,12 @@ Route::group(['prefix' => 'customers'], function(){
     Route::post('/create', 'CustomerController@create');
     Route::post('/update/{customers_id}', 'CustomerController@update');
     Route::post('/delete', 'CustomerController@delete');
+    Route::get('/records/list', 'RecordController@getRecords');
+    Route::get('/records/details/{customer_id}', 'RecordController@getDetailsRecordById');
+
 });
 
-Route::get('records/list', 'RecordController@show');
+//Route::group(['prefix' => 'records'], function(){
+//    Route::get('/list', 'RecordController@getRecords');
+//    Route::get('/details/{customer_id}', 'RecordController@getDetailsRecordById');
+//});

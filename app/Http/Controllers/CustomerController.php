@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use App\Http\Requests\customer\CreateCustomerFormRequest;
-use App\Http\Requests\UpdateEmployeesFormRequest;
 
 class CustomerController extends Controller{
     

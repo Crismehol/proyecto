@@ -21,7 +21,7 @@ class EmployeeTableSeeder extends Seeder
         Employee::create(array(
             'name' => 'Employee 1',
             'surname' => 'Surname 1',
-            'dni' => '12345678L',
+            'dni' => '14525874M',
             'email' => 'employee1@email.com',
             'job' => '0',
             'user' => 'user1@email.com',
@@ -30,7 +30,7 @@ class EmployeeTableSeeder extends Seeder
         Employee::create(array(
             'name' => 'Employee 2',
             'surname' => 'Surname 2',
-            'dni' => '12345678L',
+            'dni' => '32569874M',
             'email' => 'employee2@email.com',
             'job' => '0',
             'user' => 'user2@email.com',

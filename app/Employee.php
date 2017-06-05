@@ -51,4 +51,5 @@ class Employee extends Model
         return DB::table('employees')->get();
     }
 
+//    TODO: activar login - autentificación de usuarios - 
 }

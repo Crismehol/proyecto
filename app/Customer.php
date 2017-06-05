@@ -20,10 +20,11 @@ class Customer extends Model
     {
         return $this->hasOne('Ticket');
     }
-    
+    // COnsulta a la base de datos
     public static function getCustomerList(){
         return DB::table('customers')->get();
     }
+    // Funciones CRUD
     public static function create_customer($request)
     {
         $customer = new Customer();

@@ -4,20 +4,19 @@
 	{{-- Tools --}}
 	<section id='tools'>
 		<ul class='breadcrumb' id='breadcrumb'>
-			<li class='title'>Empleados</li>
-			<li><a href="{{ url('recods/list') }}">Historiales</a></li>
-			<li><a href="{{ url('recods/details/list/{customer_id}') }}">Detalles cliente</a></li>
+			<li class='title'>Clientes</li>
+			<li><a href="{{ url('customers/records/list') }}">Historiales clientes</a></li>
+			{{--<li><a href="{{ url('customers/records/details/list/{customer_id}') }}">Detalles cliente</a></li>--}}
 		</ul>
 	</section>
 	{{-- Content --}}
 	<div id='content'>
 		<div class='panel panel-default grid'>
 			<div class='panel-heading'>
-				<i class='icon-table icon-large'></i>
-				Listado de empleados
-				<div class='panel-tools'>
-					<div class='badge'>3 record</div>
-				</div>
+				<i class='icon-table icon-large'></i>Historiales
+				{{--<div class='panel-tools'>--}}
+					{{--<div class='badge'>3 record</div>--}}
+				{{--</div>--}}
 			</div>
 			<div class='panel-body filters'>
 				<div class='row'>
@@ -41,11 +40,11 @@
                             <button class="btn" type="button"><i class="icon-search"></i></button>
                         </span>
 						</div>
-						{{--<a href="" id="clear_search" title="Limpiar Búsqueda" class="hidden btn-white" onclick="location.href = 'list'; return false">--}}
-						{{--<i class="material-icons white-icon">highlight_off</i></a>--}}
-						{{--<button type="button" class="btn btn-white btn-round btn-just-icon" onclick="getFilteredEmployeesList()">--}}
-						{{--<i class=""></i>--}}
-						{{--</button>--}}
+						<a href="" id="clear_search" title="Limpiar Búsqueda" class="hidden btn-white" onclick="location.href = 'list'; return false">
+						<i class="material-icons white-icon">highlight_off</i></a>
+						<button type="button" class="btn btn-white btn-round btn-just-icon" onclick="getFilteredEmployeesList()">
+						<i class=""></i>
+						</button>
 					</div>
 				</div>
 			</div>
@@ -60,20 +59,18 @@
 				</tr>
 				</thead>
 				<tbody>
-				{{--@foreach($records as $record)--}}
+				@foreach($records as $record)
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td>{{ $record->customer_id }}</td>
+						<td>{{ $record->name }}</td>
+						<td>{{ $record->surname }}</td>
+						<td>{{ $record->update }}</td>
 						<td>
-							<a href="{{ url('records/details/{customer_id}') }}">
-								<i class="icon-edit"></i></a>
+							<a href="{{ url('customers/records/details/'.$record->customer_id) }}">
+								<i class="icon-file"></i></a>
 						</td>
 					</tr>
-				{{--@endforeach--}}
+				@endforeach
 				</tbody>
 			</table>
 			<div class='panel-footer'>

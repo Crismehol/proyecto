@@ -11,10 +11,12 @@ class CreateRecordTable extends Migration {
 			$table->increments('id');
 			$table->timestamps();
 			$table->text('description');
-			$table->decimal('diopters_right', 4,2);
-			$table->decimal('diopters_left', 4,2);
-			$table->decimal('astigmatism_right', 4,2);
-			$table->decimal('astigmatism_left', 4,2);
+			$table->string('diopters_right', 5);
+			$table->string('diopters_left', 5);
+			$table->string('astigmatism_right', 5);
+			$table->string('astigmatism_left', 5);
+			$table->string('axis_right', 5);
+			$table->string('axis_left', 5);
 			$table->integer('customer_id')->unsigned();
 		});
 	}

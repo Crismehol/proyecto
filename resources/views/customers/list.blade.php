@@ -19,7 +19,8 @@
 				<div class='row'>
 					<div class='col-md-6'>
 						{{--<a href="javascript:;" data-toggle='toolbar-tooltip' class="btn" onclick="openModalToCreate()">Registrar cliente</a>--}}
-						<a href="{{ url('customers/forms/createCustomer') }}" class="btn">Registrar cliente</a>
+						<a href="{{ url('customers/forms/createCustomer') }}" class="btn">Nuevo cliente</a>
+						<a href="{{ url('customers/records/list') }}" class="btn">Historiales clientes</a>
 					</div>
 					<div class='col-md-3'>
 						<select class="form-control filter-select" id="pagination" onchange="getFilteredCustomersList()">
