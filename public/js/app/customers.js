@@ -2,7 +2,7 @@
  * Created by Crismehol on 24/05/2017.
  */
 
-function getFilteredEmployeesList(){
+function getFilteredCustomersList(){
     var filter = $('#filter');
     var pagination = $('#pagination');
     var url = 'list';
@@ -50,15 +50,15 @@ function openModalToCreate(){
     $('#password')
         .val('')
         .parent().addClass('is-empty');
-    $('#modalNewEmployee').modal('show');
+    $('#modalNewCustomer').modal('show');
 }
-function openModalToEdit(employee_id){
-    changeAction('edit', employee_id);
+function openModalToEdit(customer_id){
+    changeAction('edit', customer_id);
     $.ajax({
         method: 'GET',
-        url: HOST + API + DETAILS + EMPLOYEES + "/" + employee_id,
+        url: HOST + API + DETAILS + CUSTOMERS + "/" + customer_id,
         success: function (data) {
-            var employee = data['data'];
+            var customer = data['data'];
             $('#name')
                 .val('')
                 .parent().addClass('is-empty');
@@ -80,11 +80,44 @@ function openModalToEdit(employee_id){
             $('#password')
                 .val('')
                 .parent().addClass('is-empty');
-            $('#modalNewEmployee').modal('show');
+            $('#modalNewCustomer').modal('show');
         }
         // error: function (datas){
         //     notificarError("Se ha producido un error. Inténtelo de nuevo");
         // }
+    })
+}
+
+function openModalToCreateRecord(customer_id){
+    changeAction('editRecords', customer_id);
+    $.ajax({
+        method: 'GET',
+        url: HOST + API + DETAILS + CUSTOMERS + "/" + customer_id,
+        success: function (data) {
+            var customer = data['data'];
+            $('#diopters_right')
+                .val('')
+                .parent().addClass('is-empty');
+            $('#diopters_left')
+                .val('')
+                .parent().addClass('is-empty');
+            $('#astigmatism_right')
+                .val('')
+                .parent().addClass('is-empty');
+            $('#astigmatism_left')
+                .val('')
+                .parent().addClass('is-empty');
+            $('#axis_right')
+                .val('')
+                .parent().addClass('is-empty');
+            $('#axis_left')
+                .val('')
+                .parent().addClass('is-empty');
+            $('#description')
+                .val('')
+                .parent().addClass('is-empty');
+            $('#modalNewRecords').modal('show');
+        }
     })
 }
 

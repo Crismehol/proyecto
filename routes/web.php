@@ -15,8 +15,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function(){
-    return view('login');
+// Login
+Route::get('auth/login', function(){
+    return View::make('login');
+});
+
+Route::post('auth/login', function(){
+    if(Auth::attempt(array('user' => Request::get('user'), 'password' => Request::get('password')))){
+        dd('si');
+        return Redirect::to('customers/list');
+    }else{
+        dd('no');
+        return Redirect::to('auth/login');
+    }
+});
+
+
+Route::get('/dashboard', function(){
+    return view('dashboard');
 });
 
 Route::group(['prefix' => 'employees'], function(){
@@ -27,10 +43,12 @@ Route::group(['prefix' => 'employees'], function(){
     Route::get('/forms/createEmployee', function(){
        return view('forms.createEmployee');
     });
-
 });
 
-Route::get('api/details/{employee_id}', 'EmployeeController@details');
+Route::get('/api/details/employees/{employee_id}', 'EmployeeController@details');
+Route::get('/api/details/customers/{customers_id}', 'CustomerController@details');
+// TODO :: corregir ruta
+//Route::get('/api/customers/records/details/{customers_id}', 'RecordController@getDetailsRecordById');
 
 
 Route::group(['prefix' => 'customers'], function(){
@@ -40,6 +58,7 @@ Route::group(['prefix' => 'customers'], function(){
     Route::post('/delete', 'CustomerController@delete');
     Route::get('/records/list', 'RecordController@getRecords');
     Route::get('/records/details/{customer_id}', 'RecordController@getDetailsRecordById');
+    Route::post('/records/create', 'RecordController@create');
 
 });
 

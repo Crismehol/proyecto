@@ -1,6 +1,49 @@
 {{--TODO: mostar la lista de los clientes--}}
 @extends('template')
 @section('content')
+	{{-- Sidebar --}}
+	<section id='sidebar'>
+		<i class='icon-align-justify icon-large' id='toggle'></i>
+		<ul id='dock'>
+			<br>
+			<li class="launcher" id="dashboard-link">
+				<i class='icon-dashboard'></i>
+				<a href="{{ url('/dashboard') }}">Dashboard</a>
+			</li>
+			<br>
+			<li  class="launcher" id='employees-link'>
+				<i class='icon-file-text-alt'></i>
+				<a href="{{ url('employees/list') }}">Empleados</a>
+			</li>
+			<br>
+			<li class="active launcher dropdown hover" id='customers-link'>
+				<i class='icon-folder-open'></i>
+				<a href='{{ url('customers/list') }}'>Clientes</a>
+				<ul class='dropdown-menu'>
+					<li>
+						<a href={{ url('customers/list') }}>Listado</a>
+					</li>
+					<li>
+						<a href='{{url('customers/records/list')}}'>Historial</a>
+					</li>
+					<li>
+						<a href='{{ url('tickets/list') }}'>Tickets</a>
+					</li>
+				</ul>
+			</li>
+			<br>
+			<li class="launcher" id='products-link'>
+				<i class='icon-file'></i>
+				<a href="{{ url('products/list') }}">Productos</a>
+			</li>
+			<br>
+			<li class="launcher" id='providers-link'>
+				<i class='icon-truck'></i>
+				<a href="{{ url('providers/list') }}">Proveedores</a>
+			</li>
+		</ul>
+		<div data-toggle='tooltip' id='beaker' title='Made by lab2023'></div>
+	</section>
 	{{-- Tools --}}
 	<section id='tools'>
 		<ul class='breadcrumb' id='breadcrumb'>
@@ -36,15 +79,13 @@
 					<div class='col-md-3'>
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="buscar..." id="filter">
-                        <span class="input-group-btn">
-                            <button class="btn" type="button"><i class="icon-search"></i></button>
-                        </span>
+                            <span class="input-group-btn">
+                                <button class="btn" type="button"><i class="icon-search"></i></button>
+                            </span>
 						</div>
 						<a href="" id="clear_search" title="Limpiar Búsqueda" class="hidden btn-white" onclick="location.href = 'list'; return false">
 						<i class="material-icons white-icon">highlight_off</i></a>
-						<button type="button" class="btn btn-white btn-round btn-just-icon" onclick="getFilteredEmployeesList()">
-						<i class=""></i>
-						</button>
+						{{--<span clas--}}
 					</div>
 				</div>
 			</div>
@@ -67,14 +108,13 @@
 						<td>{{ $record->update }}</td>
 						<td>
 							<a href="{{ url('customers/records/details/'.$record->customer_id) }}">
-								<i class="icon-file"></i></a>
+								<i class="icon-folder-close"></i></a>
 						</td>
 					</tr>
 				@endforeach
 				</tbody>
 			</table>
-			<div class='panel-footer'>
-			</div>
+			<div class='panel-footer'></div>
 		</div>
 	</div>
 @stop

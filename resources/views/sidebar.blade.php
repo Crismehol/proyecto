@@ -1,17 +1,20 @@
 <section id='sidebar'>
     <i class='icon-align-justify icon-large' id='toggle'></i>
     <ul id='dock'>
-        <li class='launcher'>
+        <br>
+        <li class="launcher" id="dashboard-link">
             <i class='icon-dashboard'></i>
             <a href="{{ url('/dashboard') }}">Dashboard</a>
         </li>
-        <li class='active launcher'>
+        <br>
+        <li  class="launcher" id='employees-link'>
             <i class='icon-file-text-alt'></i>
             <a href="{{ url('employees/list') }}">Empleados</a>
         </li>
-        <li class='launcher dropdown hover'>
-            <i class='icon-flag'></i>
-            <a href=''>Clientes</a>
+        <br>
+        <li class="active launcher dropdown hover" id='customers-link'>
+            <i class='icon-folder-open'></i>
+            <a href='{{ url('customers/list') }}'>Clientes</a>
             <ul class='dropdown-menu'>
                 <li>
                     <a href={{ url('customers/list') }}>Listado</a>
@@ -24,12 +27,14 @@
                 </li>
             </ul>
         </li>
-        <li class='launcher'>
+        <br>
+        <li class="launcher" id='products-link'>
             <i class='icon-file'></i>
             <a href="{{ url('products/list') }}">Productos</a>
         </li>
-        <li class='launcher'>
-            <i class='icon-book'></i>
+        <br>
+        <li class="launcher" id='providers-link'>
+            <i class='icon-truck'></i>
             <a href="{{ url('providers/list') }}">Proveedores</a>
         </li>
     </ul>

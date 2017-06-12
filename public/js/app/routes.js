@@ -8,6 +8,9 @@ var API = "/api";
 
 
 var EMPLOYEES = "/employees";
+var CUSTOMERS = "/customers";
+
+var RECORDS = "/records";
 
 var DETAILS = "/details";
 var CREATE = "/create";

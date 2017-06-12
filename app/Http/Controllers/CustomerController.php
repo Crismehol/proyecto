@@ -17,4 +17,8 @@ class CustomerController extends Controller{
         return view('customers/list');
     }
     
+    public function details($customer_id){
+        return Customer::details($customer_id);
+    }
+    
 }

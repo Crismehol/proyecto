@@ -16,6 +16,12 @@ class RecordController extends Controller{
         $record_details = Record::getRecordById($customer_id);
         return view('record.details', array('record_details' => $record_details));
     }
+
+    // Crear nuevo registro clínico
+    public function create($request, $customer_id){
+        Record::create($request, $customer_id);
+        return view('customers/records/details/'. $customer_id);
+    }
   
 }
 

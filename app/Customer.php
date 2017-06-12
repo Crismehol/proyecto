@@ -24,6 +24,10 @@ class Customer extends Model
     public static function getCustomerList(){
         return DB::table('customers')->get();
     }
+
+    public static function details($customer_id){
+        return Customer::find($customer_id);
+    }
     // Funciones CRUD
     public static function create_customer($request)
     {

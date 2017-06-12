@@ -3,11 +3,16 @@
  */
 
 // Estilos para el menú
-function getURLParameter(name) {
-    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+if(window.location.href.indexOf("dashboard") > -1) {
+    $('#dashboard-link').addClass('active launcher');
+    $('#title').text('Dashboard');
 }
 
 if(window.location.href.indexOf("employees") > -1) {
-    $('#employees-link').addClass('active');
-    $('#title').text('Employees');
+    $('#employees-link').addClass('active launcher');
+    $('#title').text('Empleados');
+}
+if(window.location.href.indexOf("customers") > -1) {
+    $('#customers-link').addClass('active launcher');
+    $('#title').text('Clientes');
 }

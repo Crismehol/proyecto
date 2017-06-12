@@ -8,8 +8,9 @@
         <meta content='' name='description'>
         <meta content='' name='keywords'>
         <link href="{{ URL::asset('css/application-a07755f5.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ URL::asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ url('//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ url('resources/assets/images/favicon.ico') }}" rel="icon" type="image/ico" />
+        {{--<link href="{{ url('resources/assets/images/favicon.ico') }}" rel="icon" type="image/ico" />--}}
     </head>
     <body class='main page'>
         <!-- Navbar -->
@@ -27,7 +28,7 @@
         </div>
         <div id='wrapper'>
             <!-- Sidebar -->
-            @include('sidebar')
+            {{--@include('sidebar')--}}
             <!-- Content -->
             @yield('content')
         </div>
@@ -37,11 +38,7 @@
         <script src="{{ url('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js') }}" type="text/javascript"></script>
         <script src="{{ url('//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js') }}" type="text/javascript"></script>
         <script src="{{ URL::asset('js/application-985b892b.js') }}" type="text/javascript"></script>
-        {{--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script>--}}
-        {{--<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" type="text/javascript"></script>--}}
-        {{--<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js" type="text/javascript"></script>--}}
-        {{--<script src="assets/javascripts/application-985b892b.js" type="text/javascript"></script>--}}
-
+        <script src="{{ URL::asset('js/app/routes.js') }}"></script>
         <!-- Google Analytics -->
         {{--<script>--}}
           {{--var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];--}}
