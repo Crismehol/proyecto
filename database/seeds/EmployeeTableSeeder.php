@@ -11,9 +11,7 @@ class EmployeeTableSeeder extends Seeder
      *
      * @return void
      */
-
-    const PASSWORD = '$2y$10$Ur6ecNbZYoRRjQKnh81wOe3niesiflm4.cwzCCY8l96STadDmLqne';
-
+    
     public function run()
     {
         DB::table('employees')->truncate();
@@ -23,27 +21,21 @@ class EmployeeTableSeeder extends Seeder
             'surname' => 'Surname 1',
             'dni' => '14525874M',
             'email' => 'employee1@email.com',
-            'job' => '0',
-            'user' => 'user1@email.com',
-            'password' => self::PASSWORD
+            'user_id' => 1
         ));
         Employee::create(array(
             'name' => 'Employee 2',
             'surname' => 'Surname 2',
             'dni' => '32569874M',
             'email' => 'employee2@email.com',
-            'job' => '0',
-            'user' => 'user2@email.com',
-            'password' => self::PASSWORD
+            'user_id' => 0
         ));
         Employee::create(array(
             'name' => 'Employee 3',
             'surname' => 'Surname 3',
             'dni' => '12345678L',
             'email' => 'employee3@email.com',
-            'job' => '1',
-            'user' => 'user3@email.com',
-            'password' => self::PASSWORD
+            'user_id' => 0
         ));
     }
 }

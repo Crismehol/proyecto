@@ -19,6 +19,11 @@ class Employee extends Model
     {
         return $this->hasMany('Ticket');
     }
+
+    public function hasUser()
+    {
+        return $this->belongsTo('User');
+    }
     
     // Funciones CRUD
     public static function create_employee(CreateEmployeesFormRequest $request)
@@ -28,9 +33,6 @@ class Employee extends Model
         $employee->surname = $request->surname;
         $employee->dni = $request->dni;
         $employee->email = $request->email;
-        $employee->job = $request->job;
-        $employee->user = $request->email;
-        $employee->password = Hash::make($request->password);
         $employee->save();
     }
 

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateEmployeesFormRequest extends FormRequest
+class CreateUserFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +25,9 @@ class CreateEmployeesFormRequest extends FormRequest
     {
         return [
             //
-            'name'      => 'required',
-            'surname'   => 'required',
-            'dni'       => 'string',
-            'email'     => 'email|unique',
+            'user'      => 'required|email',
+            'password'  => 'required|min:6',
+            'job'       => ["required", Rule::in([0,1])],
         ];
     }
 }

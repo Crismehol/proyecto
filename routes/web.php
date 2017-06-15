@@ -16,20 +16,11 @@ Route::get('/', function () {
 });
 
 // Login
-Route::get('auth/login', function(){
+Route::get('login', function(){
     return View::make('login');
 });
-
-Route::post('auth/login', function(){
-    if(Auth::attempt(array('user' => Request::get('user'), 'password' => Request::get('password')))){
-        dd('si');
-        return Redirect::to('customers/list');
-    }else{
-        dd('no');
-        return Redirect::to('auth/login');
-    }
-});
-
+   Route::post('/login', 'Auth\LoginController@login');
+   Route::get('logout', 'UserController@logout'); 
 
 Route::get('/dashboard', function(){
     return view('dashboard');
@@ -66,3 +57,7 @@ Route::group(['prefix' => 'customers'], function(){
 //    Route::get('/list', 'RecordController@getRecords');
 //    Route::get('/details/{customer_id}', 'RecordController@getDetailsRecordById');
 //});
+
+//Auth::routes();
+//
+//Route::get('/home', 'HomeController@index')->name('home');
