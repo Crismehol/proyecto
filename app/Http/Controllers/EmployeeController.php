@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use App\Employee;
 use App\Http\Requests\CreateEmployeesFormRequest;
 use App\Http\Requests\UpdateEmployeesFormRequest;
+use App\User;
 
 class EmployeeController extends Controller
 {
 
     public function show(){
-        $employees = Employee::getList();
+        $employees = User::getUsersEmployees();
         return view('employees.list', array('employees' => $employees));
     }
 

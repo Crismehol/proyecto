@@ -37,19 +37,6 @@
                                 <button class="btn btn-default" type="submit">Entrar</button>
                             </div>
                         </fieldset>
-                        {{--<div class="form-group @if(Input::old('email') == null)is-empty @endif">--}}
-                            {{--<label class="control-label">Email</label>--}}
-                            {{--<input type="email" class="form-control" name="email" value="{{Input::old('email')}}">--}}
-                            {{--<span class="material-input">{{$errors->first('email')}}</span>--}}
-                        {{--</div>--}}
-                        {{--<div class="form-group @if(Input::old('password') == null)is-empty @endif">--}}
-                            {{--<label class="control-label">Contraseña</label>--}}
-                            {{--<input type="password" class="form-control" name="password">--}}
-                            {{--<span class="material-input">{{$errors->first('password')}}</span>--}}
-                        {{--</div>--}}
-                        {{--<button type="submit" class="btn btn-danger pull-right">Acceder--}}
-                            {{--<div class="ripple-container"></div>--}}
-                        {{--</button>--}}
                     </form>
                 </div>
             </div>

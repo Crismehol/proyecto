@@ -99,7 +99,7 @@
 					<th>Apellidos</th>
 					<th>DNI</th>
 					<th>Usuario</th>
-					<th>Cargo</th>
+					{{--<th>Cargo</th>--}}
 					<th>Acciones</th>
 				</tr>
 				</thead>
@@ -111,7 +111,7 @@
 						<td>{{$employee->surname}}</td>
 						<td>{{$employee->dni}}</td>
 						<td>{{$employee->user}}</td>
-						<td>{{$employee->job}}</td>
+						{{--<td>{{$employee->job}}</td>--}}
 						<td class="actions">
 							<a href="javascript:;" onclick="openModalToEdit({{$employee->id}})">
 								<i class="icon-edit"></i></a>

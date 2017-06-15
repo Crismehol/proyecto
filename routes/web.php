@@ -30,7 +30,7 @@ Route::group(['prefix' => 'employees'], function(){
     Route::get('/list', 'EmployeeController@show');
     Route::post('/create', 'EmployeeController@create');
     Route::post('/update/{employee_id}', 'EmployeeController@update');
-    Route::get('/delete/{employee_id}', 'EmployeeController@delete');
+    Route::post('/delete/{employee_id}', 'EmployeeController@delete');
     Route::get('/forms/createEmployee', function(){
        return view('forms.createEmployee');
     });
@@ -46,10 +46,17 @@ Route::group(['prefix' => 'customers'], function(){
     Route::get('/list', 'CustomerController@show');
     Route::post('/create', 'CustomerController@create');
     Route::post('/update/{customers_id}', 'CustomerController@update');
-    Route::post('/delete', 'CustomerController@delete');
+    Route::get('/delete/{customers_id}', 'CustomerController@delete');
     Route::get('/records/list', 'RecordController@getRecords');
     Route::get('/records/details/{customer_id}', 'RecordController@getDetailsRecordById');
     Route::post('/records/create', 'RecordController@create');
+
+});
+Route::group(['prefix' => 'users'], function(){
+    Route::get('/list', 'UserController@show');
+    Route::post('/create', 'UserController@create');
+    Route::post('/update/{user_id}', 'UserController@update');
+    Route::post('/delete', 'UserController@delete');
 
 });
 
@@ -58,6 +65,3 @@ Route::group(['prefix' => 'customers'], function(){
 //    Route::get('/details/{customer_id}', 'RecordController@getDetailsRecordById');
 //});
 
-//Auth::routes();
-//
-//Route::get('/home', 'HomeController@index')->name('home');

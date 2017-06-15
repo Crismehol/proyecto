@@ -20,7 +20,7 @@
             <li class='dropdown user'>
               <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
                 <i class='icon-user'></i>
-                <strong>User</strong>
+                <strong>Bienvenido Usuario 1</strong>
                 <b class='caret'></b>
               </a>
             </li>

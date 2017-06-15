@@ -29,7 +29,7 @@ class Customer extends Model
         return Customer::find($customer_id);
     }
     // Funciones CRUD
-    public static function create_customer($request)
+    public static function createCustomer($request)
     {
         $customer = new Customer();
         $customer->name = $request->name;
@@ -40,7 +40,7 @@ class Customer extends Model
         $customer->save();
     }
 
-    public static function update_customer($request, $customer_id)
+    public static function updateCustomer($request, $customer_id)
     {
         $customer = Customer::find($customer_id);
         $customer->name = $request->name;

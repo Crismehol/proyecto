@@ -64,7 +64,6 @@
 				<div class='row'>
 					<div class='col-md-6'>
 						<a href="javascript:;" data-toggle='toolbar-tooltip' class="btn" onclick="openModalToCreate()">Nuevo cliente</a>
-						{{--<a href="{{ url('customers/forms/createCustomer') }}" class="btn">Nuevo cliente</a>--}}
 						<a href="{{ url('customers/records/list') }}" class="btn">Historiales clientes</a>
 					</div>
 					<div class='col-md-3'>
@@ -141,33 +140,31 @@
                         <h4 class="modal-title" id="myModalLabel">Añadir Nuevo Usuario</h4>
                     </div>
                     <fieldset class="modal-body">
-                        <div class="row">
-                            <div class="form-group">
-                                <label class="control-label">Nombre</label>
-                                <input id="name" type="text" class="form-control" name="name" value="{{Input::old('name')}}" required>
-                                <span class="material-input">{{$errors->first('name')}}</span>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">Apellidos</label>
-                                <input id="surname" type="text" class="form-control" name="surname" value="{{Input::old('surname')}}">
-                                <span class="material-input">{{$errors->first('surnames')}}</span>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">DNI</label>
-                                <input id="dni" type="text" class="form-control" name="dni" value="{{Input::old('dni')}}">
-                                <span class="material-input">{{$errors->first('dni')}}</span>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">Email</label>
-                                <input id="email" type="email" class="form-control" name="email" value="{{Input::old('email')}}">
-                                <span class="material-input">{{$errors->first('email')}}</span>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">Contacto</label>
-                                <input id="phone_number" type="text" class="form-control" name="phone_number" value="{{Input::old('phone_number')}}">
-                                <span class="material-input">{{$errors->first('phone_number')}}</span>
-                            </div>
-                        </div>
+						<div class="form-group  @if(Input::old('name') == null)is-empty @endif">
+							<label class="control-label">Nombre</label>
+							<input id="name" type="text" class="form-control" name="name" value="{{Input::old('name')}}" required>
+							<span class="material-input">{{$errors->first('name')}}</span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Apellidos</label>
+							<input id="surname" type="text" class="form-control" name="surname" value="{{Input::old('surname')}}">
+							<span class="material-input">{{$errors->first('surnames')}}</span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">DNI</label>
+							<input id="dni" type="text" class="form-control" name="dni" value="{{Input::old('dni')}}">
+							<span class="material-input">{{$errors->first('dni')}}</span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Email</label>
+							<input id="email" type="email" class="form-control" name="email" value="{{Input::old('email')}}">
+							<span class="material-input">{{$errors->first('email')}}</span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Contacto</label>
+							<input id="phone_number" type="text" class="form-control" name="phone_number" value="{{Input::old('phone_number')}}">
+							<span class="material-input">{{$errors->first('phone_number')}}</span>
+						</div>
                     </fieldset>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
