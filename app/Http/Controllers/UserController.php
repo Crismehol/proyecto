@@ -12,7 +12,6 @@ class UserController extends Controller
     public function create(CreateUserFormRequest $request){
         return User::createUser($request);
     }
-
     
     public function logout(){
         Auth::logout();

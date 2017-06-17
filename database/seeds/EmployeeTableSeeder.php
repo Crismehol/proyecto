@@ -28,14 +28,14 @@ class EmployeeTableSeeder extends Seeder
             'surname' => 'Surname 2',
             'dni' => '32569874M',
             'email' => 'employee2@email.com',
-            'user_id' => 0
+            'user_id' => 2
         ));
         Employee::create(array(
             'name' => 'Employee 3',
             'surname' => 'Surname 3',
             'dni' => '12345678L',
             'email' => 'employee3@email.com',
-            'user_id' => 0
+            'user_id' => 2
         ));
     }
 }

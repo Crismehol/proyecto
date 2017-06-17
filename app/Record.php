@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Record extends Model
 {
@@ -34,6 +35,28 @@ class Record extends Model
             ->where('record.customer_id', '=', $customer_id )
             ->leftJoin('customers', 'customers.id', '=', 'record.customer_id')
             ->first();
+    }
+
+    // Exportación de los detalles del cliente en CSV
+    public static function exportCsv($customer_id){
+        $data = Record::getRecordById($customer_id);
+        $filename = 'Detalles Cliente '.$customer_id;
+        Excel::create($filename, function($excel) use($data){
+            $excel->sheet('Sheetname', function($sheet) use($data) {
+                $sheet->fromArray($data);
+            });
+        })->export('csv');
+    }
+
+    // Exportación de los detalles del cliente en CSV
+    public static function exportPdf($customer_id){
+        $data = Record::getRecordById($customer_id);
+        $filename = 'Detalles Cliente '.$customer_id;
+        Excel::create($filename, function($excel) use($data){
+            $excel->sheet('Sheetname', function($sheet) use($data) {
+                $sheet->fromArray($data);
+            });
+        })->export('pdf');
     }
     
     // Creación de nuevo registro de ficha clínica del cliente.

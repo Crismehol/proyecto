@@ -22,6 +22,17 @@ class RecordController extends Controller{
         Record::create($request, $customer_id);
         return view('customers/records/details/'. $customer_id);
     }
+    
+    // Llamada funcion exportCsv
+    public function exportCsv($customer_id){
+        Record::exportCsv($customer_id);
+        return back();
+    }
+    // Llamada funcion exportPdf
+    public function exportPdf($customer_id){
+        Record::exportPdf($customer_id);
+        return back();
+    }
   
 }
 

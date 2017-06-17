@@ -64,7 +64,7 @@
 				<div class='row'>
 					<div class='col-md-6'>
 						<a href="javascript:;" data-toggle='toolbar-tooltip' class="btn" onclick="openModalToCreate()">Nuevo cliente</a>
-						<a href="{{ url('customers/records/list') }}" class="btn">Historiales clientes</a>
+						<a href="{{ url('customers/exportCsv') }}" class="btn">Exportar en CSV</a>
 					</div>
 					<div class='col-md-3'>
 						<select class="form-control filter-select" id="pagination" onchange="getFilteredCustomersList()">
@@ -131,7 +131,7 @@
 
 	<!-- Modal Registro de cliente -->
 	<div class="modal fade" id="modalNewCustomer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<form id="user-form" method="POST" action="{{ url('customers/create') }}">
+		<form id="customer-form" method="POST" action="{{ url('customers/create') }}">
 			{{ csrf_field() }}
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -140,28 +140,28 @@
                         <h4 class="modal-title" id="myModalLabel">Añadir Nuevo Usuario</h4>
                     </div>
                     <fieldset class="modal-body">
-						<div class="form-group  @if(Input::old('name') == null)is-empty @endif">
+						<div class="form-group @if(Input::old('name') == null)is-empty @endif">
 							<label class="control-label">Nombre</label>
 							<input id="name" type="text" class="form-control" name="name" value="{{Input::old('name')}}" required>
 							<span class="material-input">{{$errors->first('name')}}</span>
 						</div>
-						<div class="form-group">
+						<div class="form-group @if(Input::old('surname') == null)is-empty @endif">
 							<label class="control-label">Apellidos</label>
 							<input id="surname" type="text" class="form-control" name="surname" value="{{Input::old('surname')}}">
-							<span class="material-input">{{$errors->first('surnames')}}</span>
+							<span class="material-input">{{$errors->first('surname')}}</span>
 						</div>
-						<div class="form-group">
+						<div class="form-group @if(Input::old('dni') == null)is-empty @endif">
 							<label class="control-label">DNI</label>
 							<input id="dni" type="text" class="form-control" name="dni" value="{{Input::old('dni')}}">
 							<span class="material-input">{{$errors->first('dni')}}</span>
 						</div>
-						<div class="form-group">
+						<div class="form-group  @if(Input::old('email') == null)is-empty @endif">
 							<label class="control-label">Email</label>
 							<input id="email" type="email" class="form-control" name="email" value="{{Input::old('email')}}">
 							<span class="material-input">{{$errors->first('email')}}</span>
 						</div>
 						<div class="form-group">
-							<label class="control-label">Contacto</label>
+							<label class="control-label @if(Input::old('phone_number') == null)is-empty @endif">Contacto</label>
 							<input id="phone_number" type="text" class="form-control" name="phone_number" value="{{Input::old('phone_number')}}">
 							<span class="material-input">{{$errors->first('phone_number')}}</span>
 						</div>

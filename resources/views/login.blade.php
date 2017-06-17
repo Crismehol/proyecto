@@ -24,6 +24,27 @@
             </div>
             <div class='row'>
                 <div class='col-lg-12'>
+                    @if(Session::get('mensaje'))
+                        @if(Session::get('exito'))
+                            <div id="message">
+                                <div style="padding: 5px;">
+                                    <div id="inner-message" class="alert alert-success">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        {{Session::get('mensaje')}}
+                                    </div>
+                                </div>
+                            </div>
+                        @else
+                            <div id="message">
+                                <div style="padding: 5px;">
+                                    <div id="inner-message" class="alert alert-danger">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        {{Session::get('mensaje')}}
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @endif
                     <form action="{{URL::asset('login')}}" method="post" >
                     {{ csrf_field() }}
                         <fieldset class='text-center'>

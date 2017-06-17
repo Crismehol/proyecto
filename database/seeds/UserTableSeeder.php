@@ -23,5 +23,10 @@ class UserTableSeeder extends Seeder
             'password' => self::PASSWORD,
             'job' => '1'
         ));
+        User::create(array(
+            'email' => 'employe@email.com',
+            'password' => self::PASSWORD,
+            'job' => '0'
+        ));
     }
 }

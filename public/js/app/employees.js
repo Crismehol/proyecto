@@ -60,26 +60,26 @@ function openModalToEdit(employee_id){
         success: function (data) {
             var employee = data['data'];
             $('#name')
-                .val('')
-                .parent().addClass('is-empty');
+                .val(employee['name'])
+                .parent().removeClass('is-empty');
             $('#surname')
-                .val('')
-                .parent().addClass('is-empty');
+                .val(employee['surname'])
+                .parent().removeClass('is-empty');
             $('#dni')
-                .val('')
-                .parent().addClass('is-empty');
+                .val(employee['dni'])
+                .parent().removeClass('is-empty');
             $('#email')
-                .val('')
-                .parent().addClass('is-empty');
+                .val(employee['email'])
+                .parent().removeClass('is-empty');
             $('#user')
-                .val('')
-                .parent().addClass('is-empty');
+                .val(employee['user'])
+                .parent().removeClass('is-empty');
             $('#job')
-                .val('')
-                .parent().addClass('is-empty');
+                .val(employee['job'])
+                .parent().removeClass('is-empty');
             $('#password')
-                .val('')
-                .parent().addClass('is-empty');
+                .val(employee['password'])
+                .parent().removeClass('is-empty');
             $('#modalNewEmployee').modal('show');
         }
         // error: function (datas){

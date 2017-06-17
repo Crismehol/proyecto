@@ -46,10 +46,11 @@
 	{{-- Tools --}}
 	<section id='tools'>
 		<ul class='breadcrumb' id='breadcrumb'>
-			<li class='title'>Clientes</li>
-			<li><a href="{{ url('customers/list') }}">Listado de clientes</a></li>
+			<li class='title'>Employee</li>
+			<li><a href="{{ url('employees/list') }}">Listado de clientes</a></li>
 		</ul>
 	</section>
+	{{-- Content--}}
 	<div id='content'>
 		<div class='panel panel-default grid'>
 			<div class='panel-heading'>
@@ -63,11 +64,9 @@
 				<div class='row'>
 					<div class='col-md-6'>
 						<a href="javascript:;" data-toggle='toolbar-tooltip' class="btn" onclick="openModalToCreate()">Registrar cliente</a>
-						<a href="{{ url('customers/forms/createCustomer') }}" class="btn">Nuevo cliente</a>
-						<a href="{{ url('customers/records/list') }}" class="btn">Historiales clientes</a>
 					</div>
 					<div class='col-md-3'>
-						<select class="form-control filter-select" id="pagination" onchange="getFilteredCustomersList()">
+						<select class="form-control filter-select" id="pagination" onchange="getFilteredEmployeesList()">
 							<option value="" disabled selected>Clientes a mostrar</option>
 							<option value="5">5 clientes</option>
 							<option value="10">10 clientes</option>
@@ -85,7 +84,7 @@
 						</div>
 						{{--<a href="" id="clear_search" title="Limpiar Búsqueda" class="hidden btn-white" onclick="location.href = 'list'; return false">--}}
 						{{--<i class="material-icons white-icon">highlight_off</i></a>--}}
-						{{--<button type="button" class="btn btn-white btn-round btn-just-icon" onclick="getFilteredCustomersList()">--}}
+						{{--<button type="button" class="btn btn-white btn-round btn-just-icon" onclick="getFilteredEmployeesList()">--}}
 						{{--<i class=""></i>--}}
 						{{--</button>--}}
 					</div>
@@ -127,7 +126,7 @@
 		</div>
 	</div>
 
-	<script src="{{ URL::asset('js/app/customers.js') }}"></script>
+	<script src="{{ URL::asset('js/app/employees.js') }}"></script>
 
 	<!-- Modal Registro de cliente -->
 	<div class="modal fade" id="modalNewEmployee" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

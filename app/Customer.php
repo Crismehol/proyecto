@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Customer extends Model 
 {
@@ -51,6 +52,16 @@ class Customer extends Model
         $customer->user = $request->email;
         $customer->save();
     }
-
+// ======================
+    // Exportación de los cliente en CSV
+    public static function exportCsv(){
+        $data = Customer::getCustomerList();
+        $filename = 'Lista de clientes';
+        Excel::create($filename, function($excel) use($data){
+            $excel->sheet('Sheetname', function($sheet) use($data) {
+                $sheet->fromArray($data);
+            });
+        })->export('csv');
+    }
 
 }

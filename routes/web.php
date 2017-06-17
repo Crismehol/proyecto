@@ -47,10 +47,12 @@ Route::group(['prefix' => 'customers'], function(){
     Route::post('/create', 'CustomerController@create');
     Route::post('/update/{customers_id}', 'CustomerController@update');
     Route::get('/delete/{customers_id}', 'CustomerController@delete');
+    Route::get('/exportCsv', 'CustomerController@exportCsv');
     Route::get('/records/list', 'RecordController@getRecords');
     Route::get('/records/details/{customer_id}', 'RecordController@getDetailsRecordById');
     Route::post('/records/create', 'RecordController@create');
-
+    Route::get('/records/exportCsv/{customer_id}', 'RecordController@exportCsv');
+    Route::get('/records/exportPdf/{customer_id}', 'RecordController@exportPdf');
 });
 Route::group(['prefix' => 'users'], function(){
     Route::get('/list', 'UserController@show');

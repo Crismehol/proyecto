@@ -38,7 +38,7 @@ class LoginController extends Controller
 //    {
 //        $this->middleware('guest', ['except' => 'logout']);
 //    }
-
+    // Función que se llama en el formulario del loguin.
     public function login(LoginFormRequest $request){
         $credentials = $request->only('email', 'password');
         if(Auth::attempt($credentials)){

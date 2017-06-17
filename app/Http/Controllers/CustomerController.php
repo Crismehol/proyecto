@@ -27,4 +27,9 @@ class CustomerController extends Controller{
         return back();
     }
     
+    public function exportCsv(){
+        Customer::exportCsv();
+        return back();
+    }
+    
 }

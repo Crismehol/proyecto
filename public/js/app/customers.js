@@ -41,13 +41,7 @@ function openModalToCreate(){
     $('#email')
         .val('')
         .parent().addClass('is-empty');
-    $('#user')
-        .val('')
-        .parent().addClass('is-empty');
-    $('#job')
-        .val('')
-        .parent().addClass('is-empty');
-    $('#password')
+    $('#phone_number')
         .val('')
         .parent().addClass('is-empty');
     $('#modalNewCustomer').modal('show');
@@ -60,26 +54,20 @@ function openModalToEdit(customer_id){
         success: function (data) {
             var customer = data['data'];
             $('#name')
-                .val('')
-                .parent().addClass('is-empty');
+                .val(customer['name'])
+                .parent().removeClass('is-empty');
             $('#surname')
-                .val('')
-                .parent().addClass('is-empty');
+                .val(customer['surname'])
+                .parent().removeClass('is-empty');
             $('#dni')
-                .val('')
-                .parent().addClass('is-empty');
+                .val(customer['dni'])
+                .parent().removeClass('is-empty');
             $('#email')
-                .val('')
-                .parent().addClass('is-empty');
-            $('#user')
-                .val('')
-                .parent().addClass('is-empty');
-            $('#job')
-                .val('')
-                .parent().addClass('is-empty');
-            $('#password')
-                .val('')
-                .parent().addClass('is-empty');
+                .val(customer['email'])
+                .parent().removeClass('is-empty');
+            $('#phone_number')
+                .val(customer['phone_number'])
+                .parent().removeClass('is-empty');
             $('#modalNewCustomer').modal('show');
         }
         // error: function (datas){

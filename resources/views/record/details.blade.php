@@ -63,8 +63,11 @@
                 <div class='row'>
                     <div class='col-md-6'>
                         <a href="javascript:;" class="btn" onclick="openModalToCreateRecord({{$record_details->id}})">Actualizar datos</a>
+                        <a class="btn" href="{{ url('customers/records/exportCsv/'.$record_details->customer_id) }}">Exportar en CSV</a>
+                        <a class="btn" href="{{ url('customers/records/exportPdf/'.$record_details->customer_id) }}">Exportar en PDF</a>
                     </div>
-                    <div class='col-md-3'></div>
+                    <div class='col-md-3'>
+                    </div>
                     <div class='col-md-3'>
                         <select class="form-control filter-select" id="pagination" onchange="getFilteredCustomersList()">
                             <option value="" disabled selected>Revisiones</option>
@@ -73,7 +76,6 @@
                             {{--@endforeach--}}
                         </select>
                     </div>
-
                 </div>
             </div>
             <div class='panel-body'>
