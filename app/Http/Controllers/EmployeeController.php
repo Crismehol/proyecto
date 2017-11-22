@@ -26,13 +26,25 @@ class EmployeeController extends Controller
     }
     
     public function delete($employee_id){
-        $employee = Employee::find($employee_id);
-        $employee->delete();
-        return redirect('employees/list');
+        Employee::delete_employees($employee_id);
+        return back();
     }
 
     public function details($employee_id){
         return Employee::find($employee_id);
+    }
+
+//  Ordenación de campos.
+    private function getOrder($input){
+        $fields = ['id', 'name', 'surname', 'dni', 'email'];
+
+        foreach($fields as $field){
+            if(isset($input[$field]) && $input[$field] != "" ){
+                $order = $input[$field];
+                return array('field' => $field, 'order' => $order);
+            }
+        }
+        return null;
     }
 }
 

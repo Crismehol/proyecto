@@ -58,28 +58,28 @@ function openModalToEdit(employee_id){
         method: 'GET',
         url: HOST + API + DETAILS + EMPLOYEES + "/" + employee_id,
         success: function (data) {
-            var employee = data['data'];
+            // var employee = data['data'];
             $('#name')
-                .val(employee['name'])
+                .val(data['name'])
                 .parent().removeClass('is-empty');
             $('#surname')
-                .val(employee['surname'])
+                .val(data['surname'])
                 .parent().removeClass('is-empty');
             $('#dni')
-                .val(employee['dni'])
+                .val(data['dni'])
                 .parent().removeClass('is-empty');
             $('#email')
-                .val(employee['email'])
-                .parent().removeClass('is-empty');
-            $('#user')
-                .val(employee['user'])
+                .val(data['email'])
                 .parent().removeClass('is-empty');
             $('#job')
-                .val(employee['job'])
+                .val(data['job'])
                 .parent().removeClass('is-empty');
-            $('#password')
-                .val(employee['password'])
-                .parent().removeClass('is-empty');
+            // $('#user')
+            //     .val(data['user'])
+            //     .parent().removeClass('is-empty');
+            // $('#password')
+            //     .val(data['password'])
+            //     .parent().removeClass('is-empty');
             $('#modalNewEmployee').modal('show');
         }
         // error: function (datas){

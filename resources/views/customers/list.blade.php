@@ -137,7 +137,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Añadir Nuevo Usuario</h4>
+                        <h4 class="modal-title" id="myModalLabel">Clientes</h4>
                     </div>
                     <fieldset class="modal-body">
 						<div class="form-group @if(Input::old('name') == null)is-empty @endif">

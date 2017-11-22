@@ -52,27 +52,23 @@ function openModalToEdit(customer_id){
         method: 'GET',
         url: HOST + API + DETAILS + CUSTOMERS + "/" + customer_id,
         success: function (data) {
-            var customer = data['data'];
             $('#name')
-                .val(customer['name'])
+                .val(data['name'])
                 .parent().removeClass('is-empty');
             $('#surname')
-                .val(customer['surname'])
+                .val(data['surname'])
                 .parent().removeClass('is-empty');
             $('#dni')
-                .val(customer['dni'])
+                .val(data['dni'])
                 .parent().removeClass('is-empty');
             $('#email')
-                .val(customer['email'])
+                .val(data['email'])
                 .parent().removeClass('is-empty');
             $('#phone_number')
-                .val(customer['phone_number'])
+                .val(data['phone_number'])
                 .parent().removeClass('is-empty');
             $('#modalNewCustomer').modal('show');
         }
-        // error: function (datas){
-        //     notificarError("Se ha producido un error. Inténtelo de nuevo");
-        // }
     })
 }
 

@@ -11,6 +11,7 @@ class Customer extends Model
 
     protected $table = 'customers';
     public $timestamps = true;
+    protected $fillable = ['name', 'surname', 'dni','email','phone_number'];
 
     public function hasRecord()
     {
@@ -21,7 +22,7 @@ class Customer extends Model
     {
         return $this->hasOne('Ticket');
     }
-    // COnsulta a la base de datos
+    // Consulta a la base de datos
     public static function getCustomerList(){
         return DB::table('customers')->get();
     }
@@ -48,18 +49,25 @@ class Customer extends Model
         $customer->surname = $request->surname;
         $customer->dni = $request->dni;
         $customer->email = $request->email;
-        $customer->job = $request->job;
-        $customer->user = $request->email;
+        $customer->phone_number = $request->phone_number;
         $customer->save();
     }
-// ======================
+
+    // ======================
     // Exportación de los cliente en CSV
     public static function exportCsv(){
         $data = Customer::getCustomerList();
         $filename = 'Lista de clientes';
-        Excel::create($filename, function($excel) use($data){
-            $excel->sheet('Sheetname', function($sheet) use($data) {
-                $sheet->fromArray($data);
+
+        $data_array = array();
+        foreach($data as $value){
+            $obj = (array)$value;
+            array_push($data_array, $obj);
+        }
+
+        Excel::create($filename, function($excel) use($data_array){
+            $excel->sheet('Sheetname', function($sheet) use($data_array) {
+                $sheet->fromArray($data_array);
             });
         })->export('csv');
     }

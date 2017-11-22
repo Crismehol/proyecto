@@ -56,25 +56,25 @@
 			<div class='panel-heading'>
 				<i class='icon-table icon-large'></i>
 				Listado de clientes
-				<div class='panel-tools'>
-					<div class='badge'>3 record</div>
-				</div>
+				{{--<div class='panel-tools'>--}}
+					{{--<div class='badge'>3 record</div>--}}
+				{{--</div>--}}
 			</div>
 			<div class='panel-body filters'>
 				<div class='row'>
 					<div class='col-md-6'>
-						<a href="javascript:;" data-toggle='toolbar-tooltip' class="btn" onclick="openModalToCreate()">Registrar cliente</a>
+						<a href="javascript:;" data-toggle='toolbar-tooltip' class="btn" onclick="openModalToCreate()">Nuevo empleado</a>
 					</div>
-					<div class='col-md-3'>
-						<select class="form-control filter-select" id="pagination" onchange="getFilteredEmployeesList()">
-							<option value="" disabled selected>Clientes a mostrar</option>
-							<option value="5">5 clientes</option>
-							<option value="10">10 clientes</option>
-							<option value="25">25 clientes</option>
-							<option value="50">50 clientes</option>
-							<option value="100">100 clientes</option>
-						</select>
-					</div>
+					{{--<div class='col-md-3'>--}}
+						{{--<select class="form-control filter-select" id="pagination" onchange="getFilteredEmployeesList()">--}}
+							{{--<option value="" disabled selected>Clientes a mostrar</option>--}}
+							{{--<option value="5">5 clientes</option>--}}
+							{{--<option value="10">10 clientes</option>--}}
+							{{--<option value="25">25 clientes</option>--}}
+							{{--<option value="50">50 clientes</option>--}}
+							{{--<option value="100">100 clientes</option>--}}
+						{{--</select>--}}
+					{{--</div>--}}
 					<div class='col-md-3'>
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="buscar..." id="filter">
@@ -98,7 +98,6 @@
 					<th>Apellidos</th>
 					<th>DNI</th>
 					<th>Usuario</th>
-					{{--<th>Cargo</th>--}}
 					<th>Acciones</th>
 				</tr>
 				</thead>
@@ -110,7 +109,6 @@
 						<td>{{$employee->surname}}</td>
 						<td>{{$employee->dni}}</td>
 						<td>{{$employee->user}}</td>
-						{{--<td>{{$employee->job}}</td>--}}
 						<td class="actions">
 							<a href="javascript:;" onclick="openModalToEdit({{$employee->id}})">
 								<i class="icon-edit"></i></a>
@@ -128,7 +126,7 @@
 
 	<script src="{{ URL::asset('js/app/employees.js') }}"></script>
 
-	<!-- Modal Registro de cliente -->
+	<!-- Modal Registro de empleados -->
 	<div class="modal fade" id="modalNewEmployee" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<form id="employee-form" method="POST" action="{{ url('employees/create') }}">
 			{{ csrf_field() }}
@@ -136,48 +134,36 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">Añadir Nuevo Usuario</h4>
+						<h4 class="modal-title" id="myModalLabel">Añadir Empleado</h4>
 					</div>
 					<fieldset class="modal-body">
-						<div class="row">
-							<div class="form-group">
-								<label class="control-label">Nombre</label>
-								<input id="name" type="text" class="form-control" name="name" value="{{Input::old('name')}}" required>
-								<span class="material-input">{{$errors->first('name')}}</span>
-							</div>
-							<div class="form-group">
-								<label class="control-label">Apellidos</label>
-								<input id="surname" type="text" class="form-control" name="surname" value="{{Input::old('surname')}}">
-								<span class="material-input">{{$errors->first('surnames')}}</span>
-							</div>
-							<div class="form-group">
-								<label class="control-label">DNI</label>
-								<input id="dni" type="text" class="form-control" name="dni" value="{{Input::old('dni')}}">
-								<span class="material-input">{{$errors->first('dni')}}</span>
-							</div>
-							<div class="form-group">
-								<label class="control-label">Email</label>
-								<input id="email" type="email" class="form-control" name="email" value="{{Input::old('email')}}">
-								<span class="material-input">{{$errors->first('email')}}</span>
-							</div>
-							<div class="form-group">
-								<label class="control-label">Puesto</label>
-								<select class="form-control" name="job" id="job">
-									<option value="0">Administrador</option>
-									<option value="1">Empleado</option>
-								</select>
-								<span class="material-input">{{$errors->first('job')}}</span>
-							</div>
-							<div class="form-group">
-								<label class="control-label">User</label>
-								<input id="user" type="text" class="form-control" name="user" value="{{Input::old('user')}}" required>
-								<span class="material-input">{{$errors->first('user')}}</span>
-							</div>
-							<div class="form-group">
-								<label class="control-label">Password</label>
-								<input id="password" type="password" class="form-control" name="password" value="{{Input::old('password')}}" required>
-								<span class="material-input">{{$errors->first('password')}}</span>
-							</div>
+						<div class="form-group">
+							<label class="control-label">Nombre</label>
+							<input id="name" type="text" class="form-control" name="name" value="{{Input::old('name')}}" required>
+							<span class="material-input">{{$errors->first('name')}}</span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Apellidos</label>
+							<input id="surname" type="text" class="form-control" name="surname" value="{{Input::old('surname')}}">
+							<span class="material-input">{{$errors->first('surnames')}}</span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">DNI</label>
+							<input id="dni" type="text" class="form-control" name="dni" value="{{Input::old('dni')}}">
+							<span class="material-input">{{$errors->first('dni')}}</span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Email</label>
+							<input id="email" type="email" class="form-control" name="email" value="{{Input::old('email')}}">
+							<span class="material-input">{{$errors->first('email')}}</span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Puesto</label>
+							<select class="form-control" name="job" id="job">
+								<option value="1">Administrador</option>
+								<option value="2">Empleado</option>
+							</select>
+							<span class="material-input">{{$errors->first('job')}}</span>
 						</div>
 					</fieldset>
 					<div class="modal-footer">

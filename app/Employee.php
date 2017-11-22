@@ -13,7 +13,8 @@ class Employee extends Model
 
     protected $table = 'employees';
     public $timestamps = true;
-    
+    protected $fillable = ['name', 'surname', 'dni','email','user_id'];
+
     // Relación con la tabla 'Tickets'
     public function getTickets()
     {
@@ -33,6 +34,7 @@ class Employee extends Model
         $employee->surname = $request->surname;
         $employee->dni = $request->dni;
         $employee->email = $request->email;
+        $employee->user_id = $request->job;
         $employee->save();
     }
 
@@ -43,15 +45,16 @@ class Employee extends Model
         $employee->surname = $request->surname;
         $employee->dni = $request->dni;
         $employee->email = $request->email;
-        $employee->job = $request->job;
-        $employee->user = $request->email;
         $employee->save();
     }
     
+    public static function delete_employees($employee_id){
+        $employee = Employee::find($employee_id);
+        $employee->delete();
+    }
     // Consultas a la base de datos
     public static function getList(){
         return DB::table('employees')->get();
     }
 
-//    TODO: activar login - autentificación de usuarios - 
 }

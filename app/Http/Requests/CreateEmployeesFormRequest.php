@@ -28,7 +28,7 @@ class CreateEmployeesFormRequest extends FormRequest
             'name'      => 'required',
             'surname'   => 'required',
             'dni'       => 'string',
-            'email'     => 'email|unique',
+            'email'     => 'email',
         ];
     }
 }

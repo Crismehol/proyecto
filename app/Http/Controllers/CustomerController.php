@@ -16,6 +16,11 @@ class CustomerController extends Controller{
         Customer::createCustomer($request);
         return back();
     }
+
+    public function update(CreateCustomerFormRequest $request, $customer_id){
+        Customer::updateCustomer($request, $customer_id);
+        return back();
+    }
     
     public function details($customer_id){
         return Customer::details($customer_id);
@@ -26,7 +31,8 @@ class CustomerController extends Controller{
         $customer->delete();
         return back();
     }
-    
+    // Llamada al método exportCsv del modelo Customer
+    // Retorna a la ruta anterior, cuando se ejecuta
     public function exportCsv(){
         Customer::exportCsv();
         return back();

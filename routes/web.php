@@ -30,7 +30,7 @@ Route::group(['prefix' => 'employees'], function(){
     Route::get('/list', 'EmployeeController@show');
     Route::post('/create', 'EmployeeController@create');
     Route::post('/update/{employee_id}', 'EmployeeController@update');
-    Route::post('/delete/{employee_id}', 'EmployeeController@delete');
+    Route::get('/delete/{employee_id}', 'EmployeeController@delete');
     Route::get('/forms/createEmployee', function(){
        return view('forms.createEmployee');
     });
@@ -47,6 +47,7 @@ Route::group(['prefix' => 'customers'], function(){
     Route::post('/create', 'CustomerController@create');
     Route::post('/update/{customers_id}', 'CustomerController@update');
     Route::get('/delete/{customers_id}', 'CustomerController@delete');
+    
     Route::get('/exportCsv', 'CustomerController@exportCsv');
     Route::get('/records/list', 'RecordController@getRecords');
     Route::get('/records/details/{customer_id}', 'RecordController@getDetailsRecordById');

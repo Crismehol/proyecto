@@ -13,7 +13,7 @@ class UpdateEmployeesFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,10 +25,11 @@ class UpdateEmployeesFormRequest extends FormRequest
     {
         return [
             //
-            'name'      => 'required',
-            'surname'   => 'required',
+            'name'      => 'string',
+            'surname'   => 'string',
             'dni'       => 'string',
-            'job'       => ["required", Rule::in([0,1])]
+            'email'     => 'email'
+//            'job'       => ["required", Rule::in([0,1])]
         ];
     }
 }
